@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-header bg-success text-white">
+        <h4 class="mb-0">➕ Add Patient</h4>
+    </div>
+
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Patient Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" name="age" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Disease</label>
+                <input type="text" name="disease" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Doctor</label>
+                <select name="doctor" class="form-select" required>
+                    {% for doctor in doctors %}
+                        <option value="{{ doctor.id }}">
+                            {{ doctor.name }} ({{ doctor.department }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Save Patient
+            </button>
+            <a href="{% url 'patient_list' %}" class="btn btn-secondary">
+                Back
+            </a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

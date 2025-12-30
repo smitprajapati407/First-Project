@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white d-flex justify-content-between">
+        <h4 class="mb-0">👨‍👩‍👧 Patients List</h4>
+        <a href="{% url 'add_patient' %}" class="btn btn-light btn-sm">
+            ➕ Add Patient
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Disease</th>
+                    <th>Doctor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.disease }}</td>
+                    <td>{{ patient.doctor.name }}</td>
+                    <td>
+                <!-- DELETE FORM -->
+                <form method="POST" action="{% url 'delete_patient' patient.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button class="btn btn-danger btn-sm">Delete</button>
+                </form>
+
+                
+            </td>
+                     
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No patients found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="bg-light p-5 rounded shadow-sm mb-4 text-center">
+    <h1 class="display-5 fw-bold text-primary">
+        🏥 Hospital Management System
+    </h1>
+    <p class="fs-5 text-muted">
+        Manage doctors, patients, and hospital records efficiently in one place.
+    </p>
+    <hr>
+    <a href="{% url 'patient_list' %}" class="btn btn-primary btn-lg me-2">
+        View Patients
+    </a>
+    <a href="{% url 'doctor_list' %}" class="btn btn-outline-primary btn-lg">
+        View Doctors
+    </a>
+</div>
+
+<!-- CARDS SECTION -->
+<div class="row text-center container mx-auto">
+
+    <!-- PATIENT CARD -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h3 class="card-title">👨‍⚕️ Patients</h3>
+                <p class="card-text">
+                    Add new patients and view complete patient records with assigned doctors.
+                </p>
+                <a href="{% url 'add_patient' %}" class="btn btn-success">Add Patient</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCTOR CARD -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h3 class="card-title">🩺 Doctors</h3>
+                <p class="card-text">
+                    Maintain doctor details including department and contact information.
+                </p>
+                <a href="{% url 'add_doctor' %}" class="btn btn-info text-white">Add Doctor</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SYSTEM CARD -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h3 class="card-title">📊 System</h3>
+                <p class="card-text">
+                    Simple, fast, and reliable hospital data management system.
+                </p>
+                <a href="#" class="btn btn-secondary disabled">Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="text-center mt-5 text-muted">
+    <hr>
+    <p>© 2025 Hospital Management System | Built By Prajapati Smit 💙</p>
+</div>
+
+{% endblock %}

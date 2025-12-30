@@ -1,0 +1,109 @@
+body {
+    /* You can still try to add background to body if you want */
+    background-image: url('../images/istockphoto-2099357117-612x612.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* HERO section semi-transparent */
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* rest of your CSS remains as it was (cards, buttons, navbar, etc.) */
+
+
+/* HERO section */
+.hero-section {
+    background-color: rgba(255, 255, 255, 0.8); /* 60% opacity */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px); /* optional: adds soft blur effect */
+}
+
+/* Cards */
+.card {
+    background-color: rgba(255, 255, 255, 0.7); /* 70% opacity */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-top: 20px;
+    backdrop-filter: blur(3px); /* optional: soft blur */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-info {
+    background-color: #17a2b8;
+    border: none;
+}
+.btn-info:hover {
+    background-color: #117a8b;
+}
+/* Navbar styling */
+.navbar {
+    background-color: #2c3e50 !important; /* dark gray/navy alternative */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f1c40f !important; /* golden accent */
+}
+
+/* Navbar links */
+.nav-link {
+    color: #ecf0f1 !important; /* light text */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f1c40f !important; /* golden hover */
+}
+
+/* Active link */
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #f1c40f !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+.navbar {
+    background-color: rgba(0,0,0,0.6) !important;
+}
+
+/* Footer styling */
+footer, .footer, .text-center.mt-5 {
+    background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+    color: #ffffff !important;           /* white text */
+    padding: 20px 0;
+    border-top-left-radius: 10px;        /* optional rounded corners */
+    border-top-right-radius: 10px;
+}
+
+footer hr, .footer hr {
+    border-color: rgba(255,255,255,0.3); /* lighter line */
+}
+
+footer, .footer, .text-center.mt-5 {
+    background-color: #2c3e50; /* dark solid color */
+    color: #ffffff !important;
+    padding: 20px 0;
+}
+

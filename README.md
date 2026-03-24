@@ -29,7 +29,7 @@ This project helps manage patients, doctors, and appointments efficiently throug
 
 ### 1. Clone the repository
 
-git clone https://github.com/smitprajapati407/First_Project.git
+git clone https://github.com/smitprajapati407/First-Project.git
 cd First_Project
 cd first
 

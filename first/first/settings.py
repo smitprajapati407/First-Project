@@ -1,18 +1,14 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # 🔐 SECURITY
-SECRET_KEY = 'django-insecure-oksz8%s_g0f$xar8gui-!-)98hiclm+nua+35@u7g0z)25sqn3'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key')
 
-# ❌ DEBUG must be False on Render
-DEBUG = False
+DEBUG = True
 
-
-# ✅ Allow Render to access your app
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -28,10 +24,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-
-    # ✅ ADD THIS (for static files on Render)
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,15 +51,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'first.wsgi.application'
 
-
-# Database (SQLite works on Render for testing)
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -77,27 +67,19 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
-# 🧱 STATIC FILES (IMPORTANT FOR RENDER)
+# Static files
 STATIC_URL = '/static/'
 
-# ❌ DO NOT use STATICFILES_DIRS on Render
-# STATICFILES_DIRS = [BASE_DIR / "static"]
-
-# ✅ Render + WhiteNoise settings
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-STATICFILES_STORAGE = (
-    'whitenoise.storage.CompressedManifestStaticFilesStorage'
-)
+# (for local static files)
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
-# Default primary key field type
+
+# Default primary key
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
